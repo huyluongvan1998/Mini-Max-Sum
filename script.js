@@ -23,6 +23,7 @@ function SumHandler() {
   const num4 = document.getElementById('num4').value;
   const num5 = document.getElementById('num5').value;
 
+  let isNegative = false;
   let maxSum = 0;
   let minSum = 0;
 
@@ -43,9 +44,20 @@ function SumHandler() {
   }
 
   //cal min max sum
-  if (num1 !== '' && num2 !== '' && num3 !== '' && num4 !== '' && num5 !== '') {
+  for (let i = 0; i < arr.length - 1; i++) {
+    arr[i] < 0 ? (isNegative = true) : '';
+  }
+  if (
+    num1 !== '' &&
+    num2 !== '' &&
+    num3 !== '' &&
+    num4 !== '' &&
+    num5 !== '' &&
+    !isNegative
+  ) {
     calculateSum(arr, maxSum, minSum);
   } else {
+    alert('Input Positive Number or Input still missing!');
     return;
   }
 }
